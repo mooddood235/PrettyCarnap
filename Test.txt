@@ -1,0 +1,25 @@
+Show: (PvS)->~(R^T)
+ (PvQ)->~R :PR
+ S->(~T^~U) :PR
+ P :PR
+ (PvS) :AS
+ Show: P->~(R^T)
+  P :AS
+  PvQ :ADD6
+  ~R :MP2,7
+  Show: ~(R^T)
+   R^T :AS
+   R :S10
+  :ID 8,11
+ :CD9
+ Show: S->~(R^T)
+  S :AS
+  ~T^~U :MP3,15
+  ~T :S16
+  Show: ~(R^T)
+   R^T :AS
+   T :S19
+  :ID17,20
+ :CD18
+ ~(R^T) :D-AC4,5,14
+:CD23

@@ -35,22 +35,44 @@ def MakePretty(lines, line_num, transfered):
             .replace('v', '\\vee ') \
             .replace('^', '\\wedge ') \
             .replace('->', '\\rightarrow ') \
-            .replace('~', '\\neg ')
+            .replace('~', '\\neg ') \
+            .replace('P', 'A') \
+            .replace('Q', 'B') \
+            .replace('R', 'C') \
+            .replace('S', 'D') \
+            .replace('T', 'E') \
+            .replace('U', 'F')
 
         pretty_rule = FixRuleNumbers(rule, transfered)
+        pretty_rule = pretty_rule \
+            .replace(':AS', 'AS') \
+            .replace(':PR', 'PR') \
+            .replace(':MTP', '$\\vee E$ ') \
+            .replace(':ADD', '$\\vee I$ ') \
+            .replace(':S', '$\\wedge E$ ') \
+            .replace(':ADJ', '$\\wedge I$ ') \
+            .replace(':MP', 'MP ') \
+            .replace(':CD', '$\\implies \\!\\!\\!\\! I$ ' ) \
+            .replace(':DNE', '$\\neg E$ ') \
+            .replace(':ID', '$\\neg I$' ) \
+            .replace(':D-AC', 'AC ') 
 
-        fas, fhs = GetFasAndFhs(line_depth, rule)
+        fas, fhs = GetFasAndFhs(line_depth, rule, lines)
 
         return ['{}{} {} & {} \\\\\n'.format(fas, fhs, pretty_statement, pretty_rule)] \
                + MakePretty(lines[1:], line_num + 1, transfered)
 
 
-def GetFasAndFhs(line_depth, rule):
+def GetFasAndFhs(line_depth, rule, lines):
     fas = ''
     fhs = ''
 
     if 'AS' in rule:
         fhs = '\\fh'
+        for i in range(line_depth - 1):
+            fas += '\\fa'
+    elif 'PR' in rule and len(lines) > 1 and ':PR' not in lines[1]:
+        fhs = '\\fj'
         for i in range(line_depth - 1):
             fas += '\\fa'
     else:

@@ -1,0 +1,22 @@
+\begin{fitch}
+\fa (A\vee B)\rightarrow \neg C & PR  \\
+\fa D\rightarrow (\neg E\wedge \neg F) & PR  \\
+\fj A & PR  \\
+\fh (A\vee D) & AS  \\
+\fa\fh A & AS  \\
+\fa\fa A\vee B & $\vee I$  12 \\
+\fa\fa \neg C & MP  1,5 \\
+\fa\fa\fh C\wedge E & AS  \\
+\fa\fa\fa C & $\wedge E$  10 \\
+\fa\fa \neg (C\wedge E) & $\neg I$ 6,8 \\
+\fa A\rightarrow \neg (C\wedge E) & $\implies \!\!\!\! I$  7 \\
+\fa\fh D & AS  \\
+\fa\fa \neg E\wedge \neg F & MP  2,19 \\
+\fa\fa \neg E & $\wedge E$  12 \\
+\fa\fa\fh C\wedge E & AS  \\
+\fa\fa\fa E & $\wedge E$  17 \\
+\fa\fa \neg (C\wedge E) & $\neg I$ 13,15 \\
+\fa D\rightarrow \neg (C\wedge E) & $\implies \!\!\!\! I$  14 \\
+\fa \neg (C\wedge E) & AC  3,4,11 \\
+ (A\vee D)\rightarrow \neg (C\wedge E) & $\implies \!\!\!\! I$  18 \\
+\end{fitch}
