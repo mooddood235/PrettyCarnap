@@ -41,7 +41,9 @@ def MakePretty(lines, line_num, transfered):
             .replace('R', 'C') \
             .replace('S', 'D') \
             .replace('T', 'E') \
-            .replace('U', 'F')
+            .replace('U', 'F') \
+            .replace('p', '\\phi') \
+            .replace('q', '\\psi')
 
         pretty_rule = FixRuleNumbers(rule, transfered)
         pretty_rule = pretty_rule \
@@ -55,7 +57,8 @@ def MakePretty(lines, line_num, transfered):
             .replace(':CD', '$\\implies \\!\\!\\!\\! I$ ' ) \
             .replace(':DNE', '$\\neg E$ ') \
             .replace(':ID', '$\\neg I$' ) \
-            .replace(':D-AC', 'AC ') 
+            .replace(':D-AC', 'AC ') \
+            .replace(':DD', 'DD ')
 
         fas, fhs = GetFasAndFhs(line_depth, rule, lines)
 
