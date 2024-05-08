@@ -29,7 +29,7 @@ Show: (PvS)->~(R^T)
  ~(R^T) :D-AC4,5,14
 :CD23
 ```
-## Turns compiles into
+## Compiles into
 ```
 \begin{fitch}
 \fa (A\vee B)\rightarrow \neg C & PR  \\
